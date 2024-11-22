@@ -22,7 +22,7 @@ export const fileRouter = {
 
       if (oldAvatarUrl) {
         const key = oldAvatarUrl.split(
-          `/a/${env("NEXT_PUBLIC_UPLOADTHING_APP_ID")}/`,
+          `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
         )[1];
 
         await new UTApi().deleteFiles(key);
@@ -30,7 +30,7 @@ export const fileRouter = {
 
       const newAvatarUrl = file.url.replace(
         "/f/",
-        `/a/${env("NEXT_PUBLIC_UPLOADTHING_APP_ID")}/`,
+        `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
       );
 
       await Promise.all([
